@@ -30,11 +30,11 @@ void loaderMiddleware(
   }
 
   if(action is GetBriefingsAction){
-    _getBriefings(store, action);
+    _getBriefings(store);
   }
 
   if(action is AddBriefingAction){
-    _addBriefings(store, action);
+    _addBriefings(store, action).then((value) => _getBriefings(store));
   }
 
   nextDispatcher(action);
@@ -52,7 +52,7 @@ Future<void> _addBriefings(Store<AppState> store, AddBriefingAction action) asyn
   Dio().put('http://localhost:8025/api/table/setEmployersTableBriefing/', data: action.newBriefing.toMap());
 }
 
-Future<void> _getBriefings(Store<AppState> store, GetBriefingsAction action) async{
+Future<void> _getBriefings(Store<AppState> store) async{
   Response response = await Dio().get('http://localhost:8025/api/table/getEmployersTableBriefing');
   if (response.statusCode! >= 200 && response.statusCode! <= 220){
     List<Briefing> briefs = <Briefing>[];

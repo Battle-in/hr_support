@@ -24,7 +24,7 @@ Store<AppState> makeStore(){
       middleware: [loaderMiddleware]
   );
   store.dispatch(
-      SetMainScreenAction(newMainScreen: HomeScreen(store: store,)));
+      SetMainScreenAction(newMainScreen: LoginScreen(store: store,)));
   //on release change LoginScreen(store: store,)
   return store;
 }
