@@ -57,5 +57,9 @@ List<Briefing> _briefingsReducer(AppState state, dynamic action){
 }
 
 List<Complaint> _complaintsReducer(AppState state, dynamic action){
+  if(action is SetComplaintAction){
+    return action.newComplaint;
+  }
+
   return state.complaints;
 }

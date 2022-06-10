@@ -1,12 +1,22 @@
 class Complaint{
   String validationDate;
-  String validationCount;
+  int violationCount;
+  bool violationEliminated;
+  String userId;
 
-  Map toMap() => {
-
+  Map toUpdate() => {
+    'userId': userId,
+    'violationEliminatedStatus': !violationEliminated
   };
 
-  Complaint(this.validationDate, this.validationCount);
+  Map toMap() => {
+    'validationDate': validationDate,
+    'violationCount': violationCount,
+    'violationEliminated': violationEliminated,
+  };
+
+  Complaint({required this.validationDate,
+    required this.violationCount, required this.violationEliminated, required this.userId});
 
 //TODO:rewrite this shit
 }

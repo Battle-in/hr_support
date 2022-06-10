@@ -78,3 +78,15 @@ class SetComplaintAction{
 
   SetComplaintAction({required this.newComplaint});
 }
+
+class AddComplaintAction{
+  Complaint newComplaint;
+
+  AddComplaintAction({required this.newComplaint});
+}
+
+class ChangeComplaintStatusAction{
+  Complaint updateComplaint;
+
+  ChangeComplaintStatusAction({required this.updateComplaint});
+}
