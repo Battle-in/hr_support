@@ -5,6 +5,7 @@ import 'package:hr_support/entetis/staff.dart';
 import 'package:hr_support/entetis/medical_enteti.dart';
 import 'package:hr_support/entetis/briefing.dart';
 import 'package:hr_support/entetis/complaint_entety.dart';
+import 'package:hr_support/entetis/labor.dart';
 
 import 'package:hr_support/redux/app_state.dart';
 
@@ -89,4 +90,18 @@ class ChangeComplaintStatusAction{
   Complaint updateComplaint;
 
   ChangeComplaintStatusAction({required this.updateComplaint});
+}
+
+class GetLaborAction{}
+
+class SetLaborAction{
+  List<Labor> newLabors;
+
+  SetLaborAction({required this.newLabors});
+}
+
+class AddLaborAction{
+  Labor newLabor;
+
+  AddLaborAction(this.newLabor);
 }

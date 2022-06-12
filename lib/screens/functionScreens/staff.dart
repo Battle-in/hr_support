@@ -45,8 +45,8 @@ class StaffScreen extends StatelessWidget {
           Size screenSize = MediaQuery.of(context).size;
 
           var hints = [
-            'Имя',
             'Фамилия',
+            'Имя',
             'Отчество',
             'Должность',
             'Моб. номер',
@@ -65,7 +65,7 @@ class StaffScreen extends StatelessWidget {
             child: Center(
               child: Container(
                   padding: const EdgeInsets.all(20),
-                  child: Container(
+                  child: SizedBox(
                     width: screenSize.width * 0.8,
                     child: Column(
                       children: [
@@ -93,8 +93,8 @@ class StaffScreen extends StatelessWidget {
                                 store.dispatch(AddStaffAction(
                                     Staff(
                                       id: '0',
-                                      name: controllers[0].text,
-                                      surname: controllers[1].text,
+                                      name: controllers[1].text,
+                                      surname: controllers[0].text,
                                       patronymic: controllers[2].text,
                                       jobTitle: controllers[3].text,
                                       phone: controllers[4].text,

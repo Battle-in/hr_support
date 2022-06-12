@@ -20,6 +20,7 @@ Store<AppState> makeStore(){
         medExams: [],
         briefings: [],
         complaints: [],
+        labors: [],
       ),
       middleware: [loaderMiddleware]
   );

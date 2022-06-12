@@ -5,6 +5,7 @@ import 'package:hr_support/entetis/staff.dart';
 import 'package:hr_support/entetis/medical_enteti.dart';
 import 'package:hr_support/entetis/briefing.dart';
 import 'package:hr_support/entetis/complaint_entety.dart';
+import 'package:hr_support/entetis/labor.dart';
 
 import 'app_state.dart';
 import 'actions.dart';
@@ -14,7 +15,8 @@ AppState reducer(AppState state, dynamic action) => AppState(
     staff: _staffReducer(state, action),
     medExams: _medExamReducer(state, action),
     briefings: _briefingsReducer(state, action),
-    complaints: _complaintsReducer(state, action)
+    complaints: _complaintsReducer(state, action),
+    labors: _laborsReducer(state, action),
 );
 
 Widget _mainScreenReducer(AppState state, dynamic action){
@@ -62,4 +64,12 @@ List<Complaint> _complaintsReducer(AppState state, dynamic action){
   }
 
   return state.complaints;
+}
+
+List<Labor> _laborsReducer(AppState state, dynamic action){
+  if(action is SetLaborAction){
+    return action.newLabors;
+  }
+
+  return state.labors;
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hr_support/screens/functionScreens/conf_tables_screens/briefing_table.dart';
 
 import 'package:redux/redux.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:hr_support/redux/app_state.dart';
 

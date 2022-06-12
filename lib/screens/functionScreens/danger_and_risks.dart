@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:redux/redux.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:hr_support/redux/app_state.dart';
 

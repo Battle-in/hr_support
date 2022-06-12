@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hr_support/elements/pdf_tile.dart';
 
 import 'package:redux/redux.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-
 import 'package:hr_support/redux/app_state.dart';
 
 class DocumentScreen extends StatelessWidget {
