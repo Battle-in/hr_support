@@ -27,7 +27,6 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Домашняя страница'),
         centerTitle: true,
       ),
-      drawer: const Drawer(),
       body: _buildBody(context),
     );
   }
