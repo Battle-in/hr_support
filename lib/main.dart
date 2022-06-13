@@ -21,11 +21,14 @@ Store<AppState> makeStore(){
         briefings: [],
         complaints: [],
         labors: [],
+        userAnswers: [],
+        currentQuestion: 0,
+        selectedAnswer: -1,
       ),
       middleware: [loaderMiddleware]
   );
   store.dispatch(
-      SetMainScreenAction(newMainScreen: HomeScreen(store: store,)));
+      SetMainScreenAction(newMainScreen: LoginScreen(store: store,)));
   //on release change LoginScreen(store: store,)
   return store;
 }

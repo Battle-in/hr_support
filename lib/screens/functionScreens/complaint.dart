@@ -58,9 +58,10 @@ class ComplaintScreen extends StatelessWidget {
         child:ListView.separated(
         itemBuilder: (context, index) {
           return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(complaints[index].validationDate, style: Theme.of(context).textTheme.headline4,),
                   Text(

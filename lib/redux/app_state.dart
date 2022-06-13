@@ -12,6 +12,9 @@ class AppState {
   List<Briefing> briefings = [];
   List<Complaint> complaints = [];
   List<Labor> labors = [];
+  int currentQuestion = 0;
+  List<int> userAnswers = [];
+  int selectedAnswer = -1;
 
   AppState(
       {required this.mainScreen,
@@ -19,6 +22,9 @@ class AppState {
       required this.medExams,
       required this.briefings,
       required this.complaints,
-      required this.labors
+      required this.labors,
+      required this.currentQuestion,
+      required this.userAnswers,
+      required this.selectedAnswer,
       });
 }

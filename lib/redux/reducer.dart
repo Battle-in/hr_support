@@ -6,6 +6,7 @@ import 'package:hr_support/entetis/medical_enteti.dart';
 import 'package:hr_support/entetis/briefing.dart';
 import 'package:hr_support/entetis/complaint_entety.dart';
 import 'package:hr_support/entetis/labor.dart';
+import 'package:hr_support/test_data.dart';
 
 import 'app_state.dart';
 import 'actions.dart';
@@ -17,6 +18,9 @@ AppState reducer(AppState state, dynamic action) => AppState(
     briefings: _briefingsReducer(state, action),
     complaints: _complaintsReducer(state, action),
     labors: _laborsReducer(state, action),
+    currentQuestion: _currentQuestionReducer(state, action),
+    userAnswers: _userAnswersReducer(state, action),
+    selectedAnswer: _selectedAnswerReducer(state, action),
 );
 
 Widget _mainScreenReducer(AppState state, dynamic action){
@@ -72,4 +76,46 @@ List<Labor> _laborsReducer(AppState state, dynamic action){
   }
 
   return state.labors;
+}
+
+int _currentQuestionReducer(AppState state, dynamic action){
+  if (action is NextQuestionAction){
+    if(state.currentQuestion + 1 == questionsData.length){
+      return -1;
+    } else {
+      return state.currentQuestion + 1;
+    }
+  }
+
+  if(action is CurrentQuestionToStartAction){
+    return 0;
+  }
+
+  return state.currentQuestion;
+}
+
+List<int> _userAnswersReducer(AppState state, dynamic action){
+  if(action is NextQuestionAction){
+    var tmp = state.userAnswers;
+    tmp.add(state.selectedAnswer);
+    return tmp;
+  }
+
+  if(action is CurrentQuestionToStartAction){
+    return [];
+  }
+
+  return state.userAnswers;
+}
+
+int _selectedAnswerReducer(AppState state, dynamic action){
+  if(action is SetSelectedAnswerAction){
+    return action.newAnswer;
+  }
+
+  if(action is NextQuestionAction){
+    return -1;
+  }
+
+  return state.selectedAnswer;
 }

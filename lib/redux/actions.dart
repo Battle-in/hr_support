@@ -105,3 +105,13 @@ class AddLaborAction{
 
   AddLaborAction(this.newLabor);
 }
+
+class NextQuestionAction{}
+
+class SetSelectedAnswerAction{
+  int newAnswer;
+
+  SetSelectedAnswerAction({required this.newAnswer});
+}
+
+class CurrentQuestionToStartAction{}

@@ -27,8 +27,7 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
   }
 
   if (action is AddMedExamAction) {
-    _addMedExam(store, action.newMedExam).then(
-            (value) => _getMedExam(store));
+    _addMedExam(store, action.newMedExam);
   }
 
   if (action is GetBriefingsAction) {
@@ -36,7 +35,7 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
   }
 
   if (action is AddBriefingAction) {
-    _addBriefings(store, action).then((value) => _getBriefings(store));
+    _addBriefings(store, action);
   }
 
   if (action is GetComplaintAction) {
@@ -64,16 +63,14 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
 
 Future<void> _addStaff(Store<AppState> store, Staff newStaff) async {
   Dio().put('http://localhost:8025/api/employers/setEmployers/',
-      data: newStaff.toMap()).catchError((err) {
-    print(err);
-    return Future(() => null);
-  });
+      data: newStaff.toMap());
 }
 
 Future<void> _addBriefings(Store<AppState> store,
     AddBriefingAction action) async {
   Dio().put('http://localhost:8025/api/table/setEmployersTableBriefing/',
       data: action.newBriefing.toMap());
+  _getBriefings(store);
 }
 
 Future<void> _getBriefings(Store<AppState> store) async {
@@ -147,7 +144,7 @@ Future<void> _getMedExam(Store<AppState> store) async {
 
 Future<void> _addMedExam(Store<AppState> store, MedExam medExam) async {
   Dio().put('http://localhost:8025/api/table/setEmployersTable',
-      data: medExam.toMap()).then((value) => Future(() => print(value)));
+      data: medExam.toMap()).then((value) => _getMedExam(store));
 }
 
 Future<void> _getComplaint(Store<AppState> store) async {
