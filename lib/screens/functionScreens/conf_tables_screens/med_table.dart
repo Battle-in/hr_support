@@ -41,7 +41,7 @@ class MedTableScreen extends StatelessWidget {
   void _addMedExam(BuildContext context){
     showDialog(context: context, builder: (context){
       List<String> names = [
-        'Имя', 'Фамилия', 'Отчество', 'Дата прохождения', 'Форма'
+        'Имя', 'Фамилия', 'Отчество', 'Дата прохождения', 'Вид'
       ];
       var controllers = [];
 
@@ -103,7 +103,7 @@ class MedTableScreen extends StatelessWidget {
             columns: const [
               DataColumn(label: Text('ФИО')),
               DataColumn(label: Text('Дата обследования')),
-              DataColumn(label: Text('Форма справки'))
+              DataColumn(label: Text('Вид'))
             ],
             rows: rows)
       ],

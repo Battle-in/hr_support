@@ -27,7 +27,7 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
   }
 
   if (action is AddMedExamAction) {
-    _addMedExam(store, action.newMedExam);
+    _addMedExam(store, action.newMedExam).then((value) => _getMedExam(store));
   }
 
   if (action is GetBriefingsAction) {
@@ -35,7 +35,7 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
   }
 
   if (action is AddBriefingAction) {
-    _addBriefings(store, action);
+    _addBriefings(store, action).then((value) => _getBriefings(store));
   }
 
   if (action is GetComplaintAction) {
@@ -43,7 +43,7 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
   }
 
   if (action is AddComplaintAction) {
-    _addComplaint(store, action);
+    _addComplaint(store, action).then((value) => _getComplaint(store));
   }
 
   if (action is ChangeComplaintStatusAction) {
@@ -55,7 +55,7 @@ void loaderMiddleware(Store<AppState> store, dynamic action,
   }
 
   if(action is AddLaborAction){
-    _addLabor(store, action);
+    _addLabor(store, action).then((value) => _getLabor(store));
   }
 
   nextDispatcher(action);
@@ -70,7 +70,6 @@ Future<void> _addBriefings(Store<AppState> store,
     AddBriefingAction action) async {
   Dio().put('http://localhost:8025/api/table/setEmployersTableBriefing/',
       data: action.newBriefing.toMap());
-  _getBriefings(store);
 }
 
 Future<void> _getBriefings(Store<AppState> store) async {
@@ -144,7 +143,7 @@ Future<void> _getMedExam(Store<AppState> store) async {
 
 Future<void> _addMedExam(Store<AppState> store, MedExam medExam) async {
   Dio().put('http://localhost:8025/api/table/setEmployersTable',
-      data: medExam.toMap()).then((value) => _getMedExam(store));
+      data: medExam.toMap());
 }
 
 Future<void> _getComplaint(Store<AppState> store) async {
@@ -167,8 +166,7 @@ Future<void> _getComplaint(Store<AppState> store) async {
 Future<void> _addComplaint(Store<AppState> store,
     AddComplaintAction action) async {
   Dio().put('http://localhost:8025/api/validation/setEmployers/',
-      data: action.newComplaint.toMap()).then((value) =>
-      store.dispatch(GetComplaintAction()));
+      data: action.newComplaint.toMap());
 }
 
 Future<void> _updateComplaint(Store<AppState> store,
@@ -196,5 +194,5 @@ void _getLabor(Store<AppState> store) async {
 }
 
 Future<void> _addLabor(Store<AppState> store, AddLaborAction action) async {
-  Dio().put('http://localhost:8025/api/form/setForm', data: action.newLabor.toMap).then((value) => store.dispatch(GetLaborAction()));
+  Dio().put('http://localhost:8025/api/form/setForm', data: action.newLabor.toMap);
 }

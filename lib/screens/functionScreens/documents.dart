@@ -12,7 +12,7 @@ class DocumentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Нормативно правовые акты')),
+      appBar: AppBar(title: const Text('Справочная информация')),
       body: _buildBody(context),
     );
   }

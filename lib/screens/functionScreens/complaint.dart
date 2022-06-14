@@ -20,14 +20,14 @@ class ComplaintScreen extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Жалоба'),
+            title: const Text('Проверки'),
             bottom: const TabBar(
               tabs: [
                 Tab(
-                  child: Text('Жалобы'),
+                  child: Text('Проверки'),
                 ),
                 Tab(
-                  child: Text('Пожаловаться'),
+                  child: Text('Отчёт'),
                 )
               ],
             ),

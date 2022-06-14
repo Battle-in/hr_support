@@ -16,7 +16,7 @@ class ConformityTablesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Таблицы соответствий')),
+      appBar: AppBar(title: const Text('Графики мероприятий')),
       body: _buildBody(context),
     );
   }

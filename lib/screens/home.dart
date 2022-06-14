@@ -35,15 +35,15 @@ class HomeScreen extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     List<ScreenTile> screenTiles = <ScreenTile>[
       ScreenTile(
-          title: 'Нормативно-правовые документы по охране труда', where: DocumentScreen(store: store,)),
-      ScreenTile(title: 'Сотрудники', where: StaffScreen(store: store,),),
-      ScreenTile(title: 'Таблицы соответствий', where: ConformityTablesScreen(store: store,),),
-      ScreenTile(title: 'Отправить жалобу', where: ComplaintScreen(store: store,),),
+          title: 'Справочная информация', where: DocumentScreen(store: store,)),
+      ScreenTile(title: 'Штат работников', where: StaffScreen(store: store,),),
+      ScreenTile(title: 'Графики мероприятий', where: ConformityTablesScreen(store: store,),),
+      ScreenTile(title: 'Проверки', where: ComplaintScreen(store: store,),),
       ScreenTile(title: 'Условия труда', where: WorkingConditionsScreen(store: store,),),
       ScreenTile(title: 'Опастности и риски', where: DangerAndRiskScreen(store: store,),),
       ScreenTile(title: 'Отчетные формы', where: ReportingFormScreen(store: store,),),
-      ScreenTile(title: 'Несоответствия норм труда', where: LaborInconsistenciesScreen(store: store,),),
-      ScreenTile(title: 'Тесирование персонала', where: StaffTestingScreen(store: store,),)
+      ScreenTile(title: 'Нарушения охраны труда', where: LaborInconsistenciesScreen(store: store,),),
+      ScreenTile(title: 'Тестирование персонала', where: StaffTestingScreen(store: store,),)
     ];
     return Center(
       child: SizedBox(

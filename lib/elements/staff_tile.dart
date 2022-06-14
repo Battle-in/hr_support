@@ -16,7 +16,7 @@ class _StaffTileState extends State<StaffTile> {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        '${widget.staff.name} ${widget.staff.surname} ${widget.staff.patronymic}',
+        '${widget.staff.surname} ${widget.staff.name} ${widget.staff.patronymic}',
       ),
       leading: IconButton(
         icon: Icon(widget.open ? Icons.arrow_drop_up : Icons.arrow_drop_down),

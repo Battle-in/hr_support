@@ -20,7 +20,7 @@ class BriefingTableScreen extends StatelessWidget {
     store.dispatch(GetBriefingsAction());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Таблицы медицинских осмотров'),
+        title: const Text('Инструктажи'),
       ),
       body: StoreConnector<AppState, List<Briefing>>(
         builder: (context, value){
@@ -42,7 +42,7 @@ class BriefingTableScreen extends StatelessWidget {
   void _addBriefing(BuildContext context){
     showDialog(context: context, builder: (context){
       List<String> names = [
-        'Имя', 'Фамилия', 'Отчество', 'Дата проведения', 'Тема'
+        'Имя', 'Фамилия', 'Отчество', 'Дата проведения', 'Вид'
       ];
       var controllers = [];
 
@@ -104,7 +104,7 @@ class BriefingTableScreen extends StatelessWidget {
             columns: const [
               DataColumn(label: Text('ФИО')),
               DataColumn(label: Text('Дата проведения')),
-              DataColumn(label: Text('Тема'))
+              DataColumn(label: Text('Вид'))
             ],
             rows: rows)
       ],

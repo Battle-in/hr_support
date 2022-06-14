@@ -18,7 +18,7 @@ class StaffScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     store.dispatch(GetStaffAction());
     return Scaffold(
-      appBar: AppBar(title: const Text('Персонал')),
+      appBar: AppBar(title: const Text('Штат работников')),
       body: StoreConnector<AppState, List<Staff>>(
         builder: (context, value) {
           if (value == []) {

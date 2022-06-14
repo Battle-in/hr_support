@@ -21,14 +21,14 @@ class LaborInconsistenciesScreen extends StatelessWidget {
         length: 2,
         child: Scaffold(
             appBar: AppBar(
-              title: const Text('Несоответствия нормам труда'),
+              title: const Text('Нарушения охраны труда'),
               bottom: const TabBar(
                 tabs: [
                   Tab(
-                    text: 'Просмотр несоотвествий',
+                    text: 'Просмотр нарушений',
                   ),
                   Tab(
-                    text: 'Составление несоответсвий',
+                    text: 'Отчёт о нарушении',
                   )
                 ],
               ),
